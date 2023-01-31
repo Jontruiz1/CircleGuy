@@ -19,7 +19,12 @@ if(enemies_left == 0){
 	//win if wave == 6
 	if(++wave == 6) {
 		global.win = true;
-		room_goto(room_win);
+		if(not browser_not_a_browser){
+			room_goto(room_win_html);
+		}
+		else{
+			room_goto(room_win);
+		}
 	}
 	draw_wave_num = true;
 	alarm[0] = room_speed * 1.5;
